@@ -3,7 +3,6 @@ const init = () =>  {
         <div class="container"></div>
         <button> click me</button>    
     `;
-
     document.querySelector("button").addEventListener("click", () => {
     const myElem = document.getElementById("my-component");
     if (myElem) {
@@ -17,11 +16,3 @@ const init = () =>  {
 });};
 
 init();
-
-export const containerOfProductTourOverlay = document.querySelector('.container');
-export const observeTarget = target => callback => {
-    const mutationObserver = new MutationObserver(callback);
-    mutationObserver.observe(target, { childList: true });
-};
-export const doesMyComponentExist = () => !!document.querySelector("#my-component");
-export const observeProductTourOverlay = observeTarget(containerOfProductTourOverlay);

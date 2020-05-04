@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
 import React from 'react';
-import {doesMyComponentExist, observeProductTourOverlay} from "./init";
+import {doesMyComponentExist, observeContainer} from "./utils";
 
 
 export const FromOutside = () => {
     const [elementExists, setElementExist] = useState(doesMyComponentExist());
     const [indicator, setIndicator] = useState(elementExists);
     useEffect(() => {
-        observeProductTourOverlay(() => {
+        observeContainer(() => {
             setElementExist(doesMyComponentExist());
             // this will fire every time something inside container changes
             // (i.e. a child is added or removed)
@@ -21,7 +21,7 @@ export const FromOutside = () => {
     }, [elementExists]);
     return (
         <div>
-            <div>{'my component has been added: ' + indicator}</div>
+            <div>{'my component exist: ' + indicator}</div>
         </div>
     );
 };
